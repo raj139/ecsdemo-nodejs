@@ -7,8 +7,6 @@ metadata:
   namespace: default
 spec:
   replicas: 1
-  nodeSelector:
-    ostype: linux
   selector:
     matchLabels:
       app: ecsdemo-nodejs
@@ -22,6 +20,8 @@ spec:
       labels:
         app: ecsdemo-nodejs
     spec:
+      nodeSelector:
+        ostype: linux
       containers:
       - image: brentley/ecsdemo-nodejs:latest
         imagePullPolicy: Always
